@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>css版方块</title>
-
+	<meta charset="utf-8">
 	<style type="text/css">
 
 	div.smallbox
@@ -42,6 +42,7 @@
 		border: 0px;
 		display: flex;
 		flex-wrap: wrap;
+		position: absolute;
 	}
 
 	div.mainview
@@ -57,17 +58,6 @@
 		flex-wrap: wrap;
 	}
 
-	div.floatbox
-	{
-		width: 360px;
-		height: 600px;
-		padding: 0px;
-		border: 0px;
-		position: absolute;
-		left: 60px;
-		top: 0px;
-	}
-
 	</style>
 
 
@@ -78,20 +68,11 @@
 		<br/>
 		<label id="level">级别:1</label> 
 </div>
-<div class="mainview" id="mainview">
 	<!--主要显示沉积下来的方块  -->
-
-	<div class="floatbox" id = "floatbox">
-		<!-- 主要显示动的大方块 -->
-		<div class="box" id="box">	
-		</div>
-	</div>
+<div class="mainview" id="mainview">
+	<!-- 主要显示动的大方块 -->
+	<div class="box" id="box"></div>
 </div>
-
-
-
-	
-
 
 </body>
 </html>
@@ -119,7 +100,6 @@
     var speedarr = [1000,950, 900, 800,  700,  600,  500];
     var nextlevelscore   = 1000;
     var mainview = document.getElementById("mainview");
-    var floatbox = document.getElementById("floatbox");
     // 19 * 4 * 4
     var gXFBox = [
 	    1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,       //0
@@ -341,8 +321,8 @@
 	{
 	    if (boxId > 18) 
 	        return;
-	   	document.getElementById("floatbox").style.left = (currentBoxPoint.x*kBoxWidth)+"px";
-	    document.getElementById("floatbox").style.top =  (currentBoxPoint.y*kBoxHeight)+"px";
+	   	document.getElementById("box").style.left = (currentBoxPoint.x*kBoxWidth)+"px";
+	    document.getElementById("box").style.top =  (currentBoxPoint.y*kBoxHeight)+"px";
 
 	    for (var i = 0; i < 4; i++) {
 	        for (var j = 0; j < 4; j++) 
@@ -616,19 +596,4 @@
 	    return score;
 }
 
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
